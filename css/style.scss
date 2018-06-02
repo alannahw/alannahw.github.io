@@ -1,0 +1,500 @@
+@font-face {
+	font-family: Lobster;
+	src: url(../fonts/Lobster_1.woff);
+}
+@font-face {
+	font-family: Oranienbaum;
+	src: url(../fonts/Oranienbaum.woff);
+}
+@font-face {
+	font-family: CanterThreeDee;
+	src: url(../fonts/Canter_Bold_3D.woff);
+}
+@font-face {
+	font-family: Canter;
+	src: url(../fonts/Canter_Light.woff);
+}
+@font-face {
+	font-family: Brandon;
+	src: url(../fonts/Brandon_med.woff);
+}
+
+$tc_cream: #F2F3E6;
+$tc_brown: #573428;
+$tc_yellow: #E8C07D;
+$tc_green: #72C597;
+$tc_salmon: #CC7B5D;
+$tc_orange: #E09D65;
+$tc_taupe: #6F6357;
+$tc_teal: #93baa8;
+$tc_blue: #74A2D4;
+$tc_darkteal: #729686;
+$curly_font : (Lobster, cursive);
+$content_font : (Lato);
+$modern_font : (Brandon);
+
+@mixin columns($col_count, $col_gap) {
+	-webkit-column-count: $col_count; /* Safari and Chrome */
+	   -moz-column-count: $col_count; /* Firefox */
+	        column-count: $col_count;
+
+	-webkit-column-gap: $col_gap; /* Safari and Chrome */
+	   -moz-column-gap: $col_gap; /* Firefox */
+	        column-gap: $col_gap;
+}
+
+@mixin basic_transition($variable, $duration, $transitiontype, $delay) {
+		transition: $variable $duration $transitiontype $delay;
+   -moz-transition: $variable $duration $transitiontype $delay;
+-webkit-transition: $variable $duration $transitiontype $delay;
+}
+
+@mixin fadein_animation($duration) {
+	-webkit-animation: fadein $duration; /* Safari and Chrome */
+            animation: fadein $duration; 
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.row {
+	max-width: 1440px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	line-height: 1.7em;
+	font-family: $content_font;
+	color: $tc_taupe;
+	height: 100%;
+}
+
+/* CSS PAGE TRANSITIONS FROM CODROPS  */
+
+.pt-perspective {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	-webkit-perspective: 1200px;
+	-moz-perspective: 1200px;
+	perspective: 1200px;
+}
+
+.pt-page, .pt-logo {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.pt-page-current,
+.no-js .pt-page {
+	visibility: visible;
+	z-index: 1;
+}
+
+.no-js body {
+	overflow: auto;
+}
+
+.pt-page-ontop {
+	z-index: 999;
+}
+@-webkit-keyframes moveToLeft {
+	from { }
+	to { -webkit-transform: translateX(-100%); }
+}
+@keyframes moveToLeft {
+	from { }
+	to { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+}
+@-webkit-keyframes moveFromRight {
+	from { -webkit-transform: translateX(100%); }
+}
+@keyframes moveFromRight {
+	from { -webkit-transform: translateX(100%); transform: translateX(100%); }
+}
+@-webkit-keyframes moveFromLeft {
+	from { -webkit-transform: translateX(-100%); }
+}
+@keyframes moveFromLeft {
+	from { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+}
+.pt-page-moveToLeft {
+	-webkit-animation: moveToLeft .6s ease both;
+	animation: moveToLeft .6s ease both;
+}
+
+.pt-page-moveFromRight {
+	-webkit-animation: moveFromRight .6s ease both;
+	animation: moveFromRight .6s ease both;
+}
+
+.pt-page-moveFromLeft {
+	-webkit-animation: moveFromLeft .6s ease both;
+	animation: moveFromLeft .6s ease both;
+}
+
+
+/* END CSS PAGE TRANSITIONS FROM CODROPS */
+
+/* FONT STYLES */
+
+p {
+	font-size: 0.9em;
+	letter-spacing: 1px;
+}
+h3 {
+	font-family: Canter;
+	color: #fff;
+	font-size: 3.5em;
+}
+h4 {
+	font-family: $curly_font;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	color: $tc_taupe;
+} 
+
+.pullquotelarge {
+	font-family: $modern_font;
+	line-height: 1.3em;
+	font-size: 1.7em;
+	color: $tc_orange;
+	text-align: center;
+}
+
+.details {
+	p {
+		margin: 0px;
+		text-align: center;
+	}
+	.detailsname {
+		font-size: 1.5em;
+		color: $tc_orange;
+	}
+}
+
+/* END FONT STYLES */
+
+/* DEMO STYLES */
+#colorOne, #colorOne-link {
+	background-color: $tc_blue;
+	.circlelinks {
+		background-color: $tc_blue;
+		left: 0px;
+	}
+}
+#colorTwo, #colorTwo-link {
+	background-color: $tc_orange;
+	.circlelinks {
+		background-color: $tc_orange;
+		left: 50px;
+	}
+}
+#colorThree, #colorThree-link {
+	background-color: $tc_green;
+	.circlelinks {
+		background-color: $tc_green;
+		left: 100px;
+	}
+}
+
+.chemsetwrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50000;
+
+	nav {
+		position: relative;
+		width: 125px;
+		margin: 230px auto;
+		li {
+			list-style-type: none;
+			display: inline;
+		}
+	}
+	.circlelinks {
+		border-radius: 15px;
+		position: absolute;
+		top: 0;
+		height: 30px;
+		width: 30px;
+		border: 3px solid #fff;
+		@include basic_transition(border-width,0.25s,ease-in-out,0s);
+		cursor: pointer;
+	}
+	.circlelinks:hover {
+		border-width: 6px;
+	}
+
+	
+}
+.pt-logo {
+	margin: 10px 0px;
+}
+#colorTwo-logo {
+	margin-top: 40px; 
+}
+.fullheight {
+	height: 580px;
+	border-bottom: 10px solid $tc_brown;
+	border-top: 8px solid $tc_brown;
+}
+.chemset_demo {
+	margin-top: 190px;
+}
+/* END DEMO STYLES */
+
+.non_footer {
+	min-height: 100%; /* to push footer to bottom of screen */
+}
+
+/* mozilla bug fix for sticky footer */
+* html .non_footer { 
+	height: 100%;
+}
+
+.contentwrapper {
+	padding-bottom: 60px; /* to give footer space to be visible */
+} 
+
+.rowpadded {
+	padding: 40px 0;
+}
+
+.logo {
+	margin-top: 5px;
+}
+
+#home-logo { .logo{width: 100px;}}
+#work-logo { .logo{width: 215px;}}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 150px;
+	width: 100%;
+	z-index: 50000;
+	//border-bottom: 1px solid white;
+
+	nav {
+		margin-top: 115px;
+
+		li {
+			list-style-type: none;
+			display: inline;
+			.active {
+				color: #fff;
+			}
+		}
+
+		a {
+			font-size: 18px;
+			font-family: $modern_font;
+			color: $tc_brown;
+			text-decoration: none;
+			padding: 5px 11px;
+			@include basic_transition(color,0.25s,ease-in-out,0s);
+   		}
+		a:hover {
+			color: #fff;
+		}
+
+	}
+}
+
+#home .home { color: #fff ; }
+#about .about  { color: $tc_green ; }
+#work .work  { color: $tc_salmon ; }
+#contact .contact  { color: $tc_yellow ; }
+
+#home {
+	.headerspace {
+		background-color: $tc_teal;
+		height: 150px;
+	}
+	footer {
+		background-color: $tc_darkteal;
+	}
+}
+#work {
+	.headerspace {
+		background-color: #F3AF80;
+		height: 150px;
+	}
+	.footer {
+		background-color: $tc_salmon;
+	}
+}
+
+#work-website .work_website, 
+#work-graphic .work_graphic, 
+#work-illustration .work_illustration {
+	opacity: 1;
+	background: url("../img/arrow.png") no-repeat bottom center;
+}
+
+.submenu {
+	background-color: $tc_salmon;
+	height: 70px;
+	padding-top: 25px;
+
+	a {
+		font-size: 32px;
+		padding-bottom: 18px;
+		font-family: Canter;
+		color: #fff;
+		opacity: 0.8;
+		text-decoration: none;
+		display: inline;
+		@include basic_transition(opacity,0.25s,ease-in-out,0s);
+	}
+	a:hover {
+		opacity: 1;
+	}
+
+}
+
+.content {
+	/*@include fadein_animation(1.5s);*/
+}
+
+.thickdivider {
+	height: 40px;
+	background-color: $tc_cream;
+}
+
+.front_contactbtn {
+	border-radius: 26px;
+	margin: 20px auto;
+	background-color: none;
+	background: url("../img/frontpage_contactbtn.png") no-repeat -1px -1px;
+	width: 227px;
+	height: 52px;
+}
+.front_contactbtn:hover {
+	background-position: -228px -0px;
+}
+.front_contactbtn:active {
+	background-position: -454px -0px;
+}
+
+.small_centerize {
+	text-align: center;
+}
+
+.caricature {
+	text-align: center;
+}
+
+.aboutRowWrapper {
+	background-color: $tc_teal;
+	border-top: 20px solid $tc_darkteal;
+	.aboutRow {
+		max-width: 62.5em;
+		margin: 0px auto;
+	}
+}
+
+footer {
+	font-size: 10px;
+	height: 60px;
+	margin-top: -60px; /* pull footer back into browser */
+
+	.social_links {
+		float:right;
+		background-color: #000;
+		opacity: 0.3;
+		width: 38px;
+		height: 38px;
+		border-radius: 19px;
+		margin: 11px 0px 10px 20px;
+		@include basic_transition(opacity,0.25s,ease-in-out,0s);
+	}
+	.social_links:hover {
+		opacity: 0.4;
+	}
+	.social_links:active {
+		opacity: 0.5;
+	}
+	.link_twitter {
+		background: #000 url("../img/social_links.png") no-repeat -1px -3px;
+	}
+	.link_fb {
+		background: #000 url("../img/social_links.png") no-repeat -39px -3px;
+	}
+	.link_gplus {
+		background: #000 url("../img/social_links.png") no-repeat -77px -3px;
+	}
+	.link_linkedin {
+		background: #000 url("../img/social_links.png") no-repeat -115px -3px;
+	}
+}
+
+/* changes to make when larger screen displayed */
+@media only screen and (min-width: 40.063em) { 
+
+	.small_centerize {
+		text-align: left;
+	}
+	.front_contactbtn {
+		margin: 20px 0px;
+	}
+	.logo {
+		margin: 10px;
+	}
+
+	header {
+		width: 100%;
+		height: 95px;	
+		nav {
+			margin-top: 35px;
+			float: right;
+		}	
+	}
+	#home, #work {
+		.headerspace {
+			height: 95px;
+		}
+	}
+	#home-logo {.logo{width: 181px;}}
+	#work-logo {.logo{width: 215px;}}
+
+	.chemsetwrapper {
+		nav {
+			margin: 50px 30px;
+		}
+	}
+	.pt-logo {
+		margin: 20px;
+	}
+	.chemset_demo {
+		margin-top: 150px;
+	}
+}
